@@ -36,7 +36,7 @@ class CNPJ(Base):
         cnpj = str(cnpj).strip().replace('.', '').replace('-', '').replace('/', '').replace(' ', '')
         first_digit = cnpj[0]
         
-        if not len(cnpj) == 14:
+        if not len(cnpj) == 14 or not cnpj.isnumeric():
             return False
         if not not all(first_digit == digit for digit in cnpj):
             return False

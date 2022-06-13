@@ -16,7 +16,7 @@ class CPF(Base):
 
         cpf = str(cpf).strip().replace('.', '').replace('-', '').replace(' ', '')
 
-        if not len(cpf) == 11:
+        if not len(cpf) == 11 or not cpf.isnumeric():
             return False    
 
         if cpf in [s * 11 for s in [str(n) for n in range(10)]]:
