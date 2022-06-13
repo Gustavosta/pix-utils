@@ -1,21 +1,15 @@
 #!/usr/bin/env python
 #-*- coding:utf -8-*-3
 
+from pix_utils.Base import Base
 
-class CNPJ(object):
+
+class CNPJ(Base):
     """
     Classe para validação de números de CNPJ.
     """
 
-    def __init__(self, cnpj):
-        """
-        Inicializa a classe.
-        """
-
-        self.cnpj = cnpj
-
-
-    def caculate_digit(self, is_first_digit: bool = True):
+    def caculate_digit(self, cnpj, is_first_digit: bool = True):
         """
         Calcula o dígito verificador.
         """
@@ -27,43 +21,44 @@ class CNPJ(object):
 
         result_sum = 0
         for index, factory in enumerate(FACTORIES):
-            result_sum += factory * int(self.cnpj[index])
+            result_sum += factory * int(cnpj[index])
         REST = result_sum % 11
         if REST >= 10:
             return 0
         return REST
 
 
-    def validate(self):
+    def validate(self, cnpj):
         """
         Valida um número de CNPJ.
         """
 
-        self.cnpj = str(self.cnpj).strip().replace('.', '').replace('-', '').replace('/', '').replace(' ', '')
-        first_digit = self.cnpj[0]
+        cnpj = str(cnpj).strip().replace('.', '').replace('-', '').replace('/', '').replace(' ', '')
+        first_digit = cnpj[0]
         
-        if not len(self.cnpj) == 14:
+        if not len(cnpj) == 14:
             return False
-        if not not all(first_digit == digit for digit in self.cnpj):
+        if not not all(first_digit == digit for digit in cnpj):
             return False
 
-        first_verification_digit: int = self.caculate_digit()
-        last_verification_digit: int = self.caculate_digit(is_first_digit=False)
+        first_verification_digit: int = self.caculate_digit(cnpj)
+        last_verification_digit: int = self.caculate_digit(cnpj, is_first_digit=False)
 
-        return self.cnpj[-2:] == f'{first_verification_digit}{last_verification_digit}'
+        return cnpj[-2:] == f'{first_verification_digit}{last_verification_digit}'
 
 
-    def mask(self):
+    def mask(self, cnpj):
         """
         Máscara um número de CNPJ.
         """
 
-        self.cnpj = str(self.cnpj).strip().replace('.', '').replace('-', '').replace('/', '').replace(' ', '')
+        cnpj = str(cnpj).strip().replace('.', '').replace('-', '').replace('/', '').replace(' ', '')
         if not self.validate():
             return False
 
         else:
-            return f'{self.cnpj[0:2]}.{self.cnpj[2:5]}.{self.cnpj[5:8]}/{self.cnpj[8:12]}-{self.cnpj[12:]}'
+            return f'{cnpj[0:2]}.{cnpj[2:5]}.{cnpj[5:8]}/{cnpj[8:12]}-{cnpj[12:]}'
+
 
 
 

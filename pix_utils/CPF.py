@@ -1,25 +1,20 @@
 #!/usr/bin/env python
 #-*- coding:utf -8-*-3
 
-class CPF(object):
+from pix_utils.Base import Base
+
+
+class CPF(Base):
     """
     Classe para validação de números de CPF.
     """
 
-    def __init__(self, cpf):
-        """
-        Inicializa a classe.
-        """
-
-        self.cpf = cpf
-
-
-    def validate(self):
+    def validate(self, cpf):
         """
         Valida um número de CPF.
         """
 
-        cpf = str(self.cpf).strip().replace('.', '').replace('-', '').replace(' ', '')
+        cpf = str(cpf).strip().replace('.', '').replace('-', '').replace(' ', '')
 
         if len(cpf) < 11:
             return False    
@@ -35,12 +30,12 @@ class CPF(object):
         return str(d1) == cpf[-2] and str(d2) == cpf[-1]
 
 
-    def mask(self):
+    def mask(self, cpf):
         """
         Máscara um número de CPF.
         """
 
-        cpf = str(self.cpf).strip().replace('.', '').replace('-', '').replace(' ', '')
+        cpf = str(cpf).strip().replace('.', '').replace('-', '').replace(' ', '')
 
         if not self.validate():
             return False

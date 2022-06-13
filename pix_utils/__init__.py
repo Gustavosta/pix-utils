@@ -8,7 +8,7 @@ from .Email import Email
 from .CNPJ import CNPJ
 from .Type import Type
 from .Pix import Code
-
+from .Base import Base
 
 
 
