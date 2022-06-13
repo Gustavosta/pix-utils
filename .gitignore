@@ -1,0 +1,9 @@
+.idea/*
+venv/*
+dist/*
+build/*
+*/__pycache__/*
+site/*
+# Egg metadata
+*.egg-info
+.coverage
