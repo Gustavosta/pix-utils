@@ -13,6 +13,7 @@ def Type(value):
     Valida um número de CPF, telefone, email, CNPJ ou chave PIX aleatória.
     """
     
+    value = str(value).strip()
     if CPF().validate(value) == True:
         return 'CPF', CPF().mask(value)
 
@@ -20,15 +21,14 @@ def Type(value):
         return 'Phone', Phone().mask(value)
 
     if Random().validate(value) == True:
-        return 'Random', Random().mask(value)
+        return 'Random', value
 
     if Email().validate(value) == True:
-        return 'Email', Email().mask(value)
+        return 'Email', value
 
     if CNPJ().validate(value) == True:
         return 'CNPJ', CNPJ().mask(value)
 
     return False
-
 
 

@@ -123,6 +123,7 @@ def Code(key: str, name: str, city: str, value: Optional[Decimal] = None, identi
         Arredonda um valor decimal.
         """
 
+        value = Decimal(value)
         return Decimal(value.quantize(Decimal('.01'), rounding=ROUND_HALF_UP))
 
 
@@ -146,4 +147,3 @@ def Code(key: str, name: str, city: str, value: Optional[Decimal] = None, identi
 
     crc = get_crc16(payload)
     return payload + f"6304{crc}"
-

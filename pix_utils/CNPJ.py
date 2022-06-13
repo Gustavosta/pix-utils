@@ -53,7 +53,7 @@ class CNPJ(Base):
         """
 
         cnpj = str(cnpj).strip().replace('.', '').replace('-', '').replace('/', '').replace(' ', '')
-        if not self.validate():
+        if not self.validate(cnpj):
             return False
 
         else:

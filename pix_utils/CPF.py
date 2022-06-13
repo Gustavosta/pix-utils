@@ -37,7 +37,7 @@ class CPF(Base):
 
         cpf = str(cpf).strip().replace('.', '').replace('-', '').replace(' ', '')
 
-        if not self.validate():
+        if not self.validate(cpf):
             return False
 
         else:
