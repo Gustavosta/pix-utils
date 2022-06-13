@@ -13,20 +13,20 @@ def Type(value):
     Valida um número de CPF, telefone, email, CNPJ ou chave PIX aleatória.
     """
     
-    if CPF(value).validate() == True:
-        return 'CPF', CPF(value).mask()
+    if CPF().validate(value) == True:
+        return 'CPF', CPF().mask(value)
 
-    if Phone(value).validate() == True:
-        return 'Telefone', Phone(value).mask()
+    if Phone().validate(value) == True:
+        return 'Phone', Phone().mask(value)
 
-    if Random(value).validate() == True:
-        return 'Aleatória', Random(value).mask()
+    if Random().validate(value) == True:
+        return 'Random', Random().mask(value)
 
-    if Email(value).validate() == True:
-        return 'Email', Email(value).mask()
+    if Email().validate(value) == True:
+        return 'Email', Email().mask(value)
 
-    if CNPJ(value).validate() == True:
-        return 'CNPJ', CNPJ(value).mask()
+    if CNPJ().validate(value) == True:
+        return 'CNPJ', CNPJ().mask(value)
 
     return False
 
