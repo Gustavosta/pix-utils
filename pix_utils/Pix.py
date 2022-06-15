@@ -7,7 +7,7 @@ from typing import Optional
 from decimal import ROUND_HALF_UP, Decimal
 
 
-def Code(key: str, name: str, city: str, value: Optional[Decimal] = None, identifier: Optional[str] = None):
+def Code(key: str, name: str, city: str, value: float = None, identifier: Optional[str] = None):
     """
     Essa função serve para criar uma string de código PIX copia e cola
     estático, para geração de pagamentos.
@@ -129,6 +129,7 @@ def Code(key: str, name: str, city: str, value: Optional[Decimal] = None, identi
 
     transaction_value: str
     if value is not None:
+        value = Decimal(value)
         transaction_value = get_transaction_value(round_decimal(value))
     else:
         transaction_value = ''
@@ -147,3 +148,7 @@ def Code(key: str, name: str, city: str, value: Optional[Decimal] = None, identi
 
     crc = get_crc16(payload)
     return payload + f"6304{crc}"
+
+
+
+
