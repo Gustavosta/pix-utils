@@ -12,7 +12,7 @@ setuptools.setup(
     description="A module for useful functions related to the Brazilian payment system PIX.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/alvarofpp/validate-docbr",
+    url="https://github.com/Gustavosta/pix-utils",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
