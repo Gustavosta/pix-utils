@@ -31,7 +31,7 @@ print(Random().validate('12345678-1234-1234-1234-123456789012')) # True
 
 ### Formatação de chaves PIX para CPF, CNPJ e telefone.
 
-Máscara chaves PIX de CPF, CNPJ e telefone cm o método `mask`.
+Máscara chaves PIX de CPF, CNPJ e telefone chamando o método `mask`.
 
 ```python
 from pix_utils import CPF, CNPJ, Phone
