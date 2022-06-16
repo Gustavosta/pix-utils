@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="pix_utils",
+    name="pix-utils",
     version="1.0.0",
     author="Gustavo Santana",
     author_email="sowlfie@gmail.com",
