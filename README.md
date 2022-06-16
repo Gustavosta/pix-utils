@@ -79,6 +79,6 @@ Você pode ver exemplos de usos [aqui](/examples)
 
 ## Licença
 
-[MIT](LICENSE)
+[MIT Licence](LICENSE)
 
 
