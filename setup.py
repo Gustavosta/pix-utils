@@ -1,12 +1,12 @@
 import setuptools
 
 
-with open("README.md", "r") as fh:
+with open("README.md", "r", encoding="UTF-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="pix-utils",
-    version="1.0.0",
+    version="1.0.1",
     author="Gustavo Santana",
     author_email="sowlfie@gmail.com",
     description="A module for useful functions related to the Brazilian payment system PIX.",
